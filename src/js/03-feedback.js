@@ -18,8 +18,6 @@ let parsedData;
 savedFormData();
 
 function onFormInput(event) {
-  event.target.name;
-  event.target.value;
   formData[event.target.name] = event.target.value;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
@@ -36,7 +34,11 @@ function savedFormData() {
 
 function onFormSubmit(event) {
   event.preventDefault();
+  if (savedFormData()) {
+    console.log(formData);
+  } else {
+    console.log(parsedData);
+  }
   event.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
-  console.log(parsedData);
 }
